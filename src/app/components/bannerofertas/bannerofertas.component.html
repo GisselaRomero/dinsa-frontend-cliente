@@ -1,0 +1,36 @@
+<div class="banner-container">
+
+  <h2>📤 Subir Banner</h2>
+  <p class="subtext">
+    Selecciona el tipo de banner y sube una imagen en formato JPG o PNG.
+  </p>
+
+  <!-- Selector de tipo de banner -->
+  <div class="banner-type">
+    <label>
+<input type="radio" name="tipoBanner" [(ngModel)]="tipoBanner" value="principal">
+      Banner Principal
+    </label>
+    <label>
+<input type="radio" name="tipoBanner" [(ngModel)]="tipoBanner" value="ofertasHome">
+      Banner Ofertas Home
+    </label>
+  </div>
+
+  <!-- Input imagen -->
+  <input type="file" accept="image/*" (change)="onFileSelected($event)" />
+
+  <!-- Vista previa -->
+  <div class="preview" *ngIf="previewUrl">
+    <img [src]="previewUrl" alt="Vista previa">
+  </div>
+
+  <!-- Botón de subir -->
+  <button class="btn-upload" (click)="subirBanner()" [disabled]="!selectedFile">
+    Subir Banner
+  </button>
+
+  <!-- Mensaje -->
+  <p class="mensaje" *ngIf="mensaje">{{ mensaje }}</p>
+
+</div>
